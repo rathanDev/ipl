@@ -122,5 +122,13 @@ public class MatchInput {
     public void setUmpire2(String umpire2) {
         this.umpire2 = umpire2;
     }
+    @Override
+    public String toString() {
+        return "MatchInput [city=" + city + ", date=" + date + ", eliminator=" + eliminator + ", id=" + id + ", method="
+                + method + ", neutral_venue=" + neutral_venue + ", player_of_match=" + player_of_match + ", result="
+                + result + ", result_margin=" + result_margin + ", team1=" + team1 + ", team2=" + team2
+                + ", toss_decision=" + toss_decision + ", toss_winner=" + toss_winner + ", umpire1=" + umpire1
+                + ", umpire2=" + umpire2 + ", venue=" + venue + ", winner=" + winner + "]";
+    }
 
 }

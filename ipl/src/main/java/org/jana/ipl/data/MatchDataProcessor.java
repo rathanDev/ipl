@@ -3,12 +3,17 @@ package org.jana.ipl.data;
 import java.time.LocalDate;
 
 import org.jana.ipl.model.Match;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 
 public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
 
+    private static final Logger log = LoggerFactory.getLogger(MatchDataProcessor.class);
+
     @Override
     public Match process(final MatchInput mi) {
+        log.debug("Process input {}", mi);
 
         Match m = new Match();
         m.setId(Long.parseLong(mi.getId()));
@@ -16,7 +21,7 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
         m.setDate(LocalDate.parse(mi.getDate()));
         m.setPlayerOfMatch(mi.getPlayer_of_match());
         m.setVenue(mi.getVenue());
-        
+
         //
         // flow integration
         // spring integration
