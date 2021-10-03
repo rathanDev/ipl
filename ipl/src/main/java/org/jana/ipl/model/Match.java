@@ -2,9 +2,15 @@ package org.jana.ipl.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Match {
     
+    @Id
     private long id;
+    
     private String city;
     private LocalDate date;
     private String playerOfMatch;
