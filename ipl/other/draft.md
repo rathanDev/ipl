@@ -19,3 +19,23 @@ open pallette
 
 
 -----
+
+non java file 
+if you still want it to be in the class path 
+src/main/resources is the place 
+
+-----
+
+02 Spring Boot App and data processing logic - IPL Dashboard - Full Stack Web Development Tutorial
+https://www.youtube.com/watch?v=KnGKZc31P5k&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=3
+
+-----
+
+Spring Batch basics 
+
+Reader     <---   CSV  
+Processor         process 
+Writer     ---->  db 
+
+-----
+-----
