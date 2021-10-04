@@ -32,10 +32,31 @@ https://www.youtube.com/watch?v=KnGKZc31P5k&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkM
 -----
 
 Spring Batch basics 
+has 3 major components
 
 Reader     <---   CSV  
 Processor         process 
 Writer     ---->  db 
 
 -----
+
+localhost:8080/h2-console
+
 -----
+
+Err:
+No EntityManager with actual transaction available for current thread -
+cannot reliably process 'persist'
+=> Add @Transactional
+
+Err:
+javax.persistence.EntityExistsException: A different object with the same identifier value was already associated with the session
+=> 
+
+-----
+
+
+
+
+
+

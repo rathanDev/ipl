@@ -1,5 +1,13 @@
 package org.jana.ipl.data;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+
+import org.jana.ipl.model.Team;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.BatchStatus;
@@ -15,21 +23,51 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
     private static final Logger log = LoggerFactory.getLogger(JobCompletionNotificationListener.class);
 
     private final JdbcTemplate jdbcTemplate;
+    private final EntityManager em;
 
     @Autowired
-    public JobCompletionNotificationListener(JdbcTemplate jdbcTemplate) {
+    public JobCompletionNotificationListener(JdbcTemplate jdbcTemplate, EntityManager em) {
         this.jdbcTemplate = jdbcTemplate;
+        this.em = em;
     }
 
     @Override
+    @Transactional
     public void afterJob(JobExecution jobExecution) {
         // super.afterJob(jobExecution);
         if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
             log.info("!!! JOB FINISHED! Time to verify the results");
 
-            jdbcTemplate.query("SELECT team1, team2, date FROM match",
-                    (rs, row) -> "Team1:" + rs.getString(1) + " Team2:" + rs.getString(2) + " Date:" + rs.getString(3))
-                    .forEach(match -> System.out.println(match));
+            // jdbcTemplate.query("SELECT team1, team2, date FROM match",
+            // (rs, row) -> "Team1:" + rs.getString(1) + " Team2:" + rs.getString(2) + "
+            // Date:" + rs.getString(3))
+            // .forEach(match -> System.out.println(match));
+
+            // select distinct team1 from match union select distinct team2 from match
+            // But JPA doensn't allow union
+
+            Map<String, Team> teamData = new HashMap<>();
+
+            em.createQuery("select m.team1, count(*) from Match m group by m.team1", Object[].class).getResultList()
+                    .stream().map(e -> new Team((String) e[0], (long) e[1]))
+                    .forEach(team -> teamData.put(team.getTeamName(), team));
+
+            em.createQuery("select m.team2, count(*) from Match m group by m.team2", Object[].class).getResultList()
+                    .stream().map(e -> new Team((String) e[0], (long) e[1])).forEach(e -> {
+                        Team team = teamData.get(e.getTeamName());
+                        team.setTotalMatches(team.getTotalMatches() + e.getTotalMatches());
+                    });
+
+            em.createQuery("select m.matchWinner, count(*) from Match m group by m.matchWinner", Object[].class)
+                    .getResultList().stream().forEach(e -> {
+                        Team team = teamData.get((String) e[0]);
+                        if (team != null)
+                            team.setTotalWins((long) e[1]);
+                    });
+
+            teamData.values().forEach(team -> em.persist(team));
+
+            System.out.print(teamData.values());
         }
     }
 
