@@ -27,8 +27,8 @@ src/main/resources is the place
 -----
 
 02 Spring Boot App and data processing logic - IPL Dashboard - Full Stack Web Development Tutorial
-https://www.youtube.com/watch?v=KnGKZc31P5k&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=3
-
+https://www.youtube.com/watfch?v=KnGKZc31P5k&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=3
+complete 
 -----
 
 Spring Batch basics 
@@ -55,7 +55,12 @@ javax.persistence.EntityExistsException: A different object with the same identi
 
 -----
 
+03. Ingesting data using Spring Batch 
+https://www.youtube.com/watch?v=2-9uMRzLBGY&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=4
+complete 
 
+04. Preparing additonal data using JPQL IPL Dashboard
+https://www.youtube.com/watch?v=D7z5pgxgrTs&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=5
 
 
 
