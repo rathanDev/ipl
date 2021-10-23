@@ -70,7 +70,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
 
             teamData.values().forEach(em::persist);
 
-            System.out.print(teamData.values());
+            teamData.values().forEach(System.out::println);
         }
     }
 

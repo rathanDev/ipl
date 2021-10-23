@@ -62,7 +62,8 @@ complete
 04. Preparing additonal data using JPQL IPL Dashboard
 https://www.youtube.com/watch?v=D7z5pgxgrTs&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=5
 
-
+05. Building the first API Team Info IPL Dashboard - Full Stack Web Development Tutorial
+https://www.youtube.com/watch?v=uBlZA0pBEKE&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=6
 
 
 
