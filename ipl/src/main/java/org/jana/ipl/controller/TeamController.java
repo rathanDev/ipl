@@ -4,11 +4,9 @@ import org.jana.ipl.model.Match;
 import org.jana.ipl.model.Team;
 import org.jana.ipl.repo.MatchRepo;
 import org.jana.ipl.repo.TeamRepo;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +34,13 @@ public class TeamController {
         List<Match> matches = matchRepo.findLatestMatchesByTeam(teamName, 4);
         team.setMatches(matches);
         return team;
+    }
+
+    @GetMapping("/team/{teamName}/matches")
+    public List<Match> getMatchesForTeam(@PathVariable String teamName, @RequestParam int year) {
+        LocalDate startDate = LocalDate.of(year, 1, 1);
+        LocalDate endDate = LocalDate.of(year + 1, 1, 1);
+        return matchRepo.getMatchesByTeamBetweenDates(teamName, startDate, endDate);
     }
 
 }
