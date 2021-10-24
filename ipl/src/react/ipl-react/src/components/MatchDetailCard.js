@@ -1,11 +1,11 @@
 import { React } from "react";
 
-const MatchDetailCard = ({ match = {} }) => {
+const MatchDetailCard = ({ match = {}, teamName }) => {
+  const otherTeam = match.team1 === teamName ? match.team2 : match.team1;
+
   return (
     <div className="MatchDetailCard">
-      <h4>
-        {match.team1} vs {match.team2}
-      </h4>
+      <h4>vs {otherTeam}</h4>
     </div>
   );
 };

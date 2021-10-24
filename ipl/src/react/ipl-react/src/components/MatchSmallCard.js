@@ -1,6 +1,6 @@
 import { React } from "react";
 
-const MatchSmallCard = ({ match = {} }) => {
+const MatchSmallCard = ({ teamName, match = {} }) => {
   return (
     <div className="MatchSmallCard">
       <p>
