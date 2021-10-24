@@ -4,9 +4,11 @@ import org.jana.ipl.model.Team;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface TeamRepo extends CrudRepository<Team, Long> {
 
-    public Team findByTeamName(String teamName);
+    Optional<Team> findByTeamName(String teamName);
 
 }
