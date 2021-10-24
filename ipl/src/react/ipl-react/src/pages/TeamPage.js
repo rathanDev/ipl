@@ -16,8 +16,9 @@ const TeamPage = () => {
       setTeam(data);
     };
     fetchMatches();
-  }, []);
-  // [] is the dependency list, empty array will make it execute only when page loads
+  }, [teamName]);
+  // [] is the dependency list
+  // empty array will make it execute only when page loads
 
   if (!team || !team.teamName) {
     return <h1>Team Not found</h1>;
@@ -27,7 +28,6 @@ const TeamPage = () => {
     <div className="TeamPage">
       <h1>{team.teamName}</h1>
 
-      <h3>Latest Matches</h3>
       <MatchDetailCard
         teamName={team.teamName}
         match={team.matches[0]}
