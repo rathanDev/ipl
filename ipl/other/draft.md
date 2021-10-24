@@ -65,5 +65,12 @@ https://www.youtube.com/watch?v=D7z5pgxgrTs&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkM
 05. Building the first API Team Info IPL Dashboard - Full Stack Web Development Tutorial
 https://www.youtube.com/watch?v=uBlZA0pBEKE&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=6
 
+06 Starting with the frontend React app IPL Dashboard - Full Stack Web Development Tutorial
+https://www.youtube.com/watch?v=i75P8-8UACI&list=PLqq-6Pq4lTTa8V613TZhGq4o8hSgkMGQ0&index=7
 
+07 REST API calls, React Effects and State IPL Dashboard - Full Stack Web Development Tutorial
+https://youtu.be/jFrbwqQJm5E
+
+08 Adding React Routes and Links for Teams IPL Dashboard - Full Stack Web Development Tutorial
+https://www.youtube.com/watch?v=4iM7eEl3Rag
 

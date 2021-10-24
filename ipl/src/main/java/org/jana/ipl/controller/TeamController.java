@@ -4,6 +4,7 @@ import org.jana.ipl.model.Match;
 import org.jana.ipl.model.Team;
 import org.jana.ipl.repo.MatchRepo;
 import org.jana.ipl.repo.TeamRepo;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class TeamController {
 
     private final TeamRepo teamRepo;
