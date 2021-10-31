@@ -8,7 +8,7 @@ const TeamPage = () => {
   const { teamName } = useParams();
 
   useEffect(() => {
-    console.log(`teamName: ${teamName}`);
+    console.log(`TeamPage teamName: ${teamName}`);
     const fetchMatches = async () => {
       const response = await fetch(`http://localhost:8080/team/${teamName}`);
       const data = await response.json();

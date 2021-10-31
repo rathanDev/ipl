@@ -7,6 +7,7 @@ const MatchPage = () => {
   const { teamName, year } = useParams();
 
   useEffect(() => {
+    console.log(`MatchPage teamName:${teamName} year:${year}`);
     const fetchMatches = async () => {
       const response = await fetch(
         `http://localhost:8080/team/${teamName}/matches?year=${year}`
